@@ -1,6 +1,6 @@
 # array-includes-vs-index-of-bench
 
-A benchmark comparing the performance of Array#includes to Array#indexOf.
+A benchmark comparing the performance of Array#includes to Array#indexOf. Inspired by [an old dicussion about which to use when checking if an item exists in an array](https://github.com/nodejs/node/issues/26568). Benchmarks adapted from https://gist.github.com/starkwang/a5045f3d50ae2f1326eea50d4f8267e1.
 
 ## Results
 
