@@ -6,7 +6,7 @@ A benchmark comparing the performance of Array#includes to Array#indexOf. Inspir
 
 > Results performed on a 2020 MacBook Pro running macOS with an Apple M1 chip.
 
-`Array#includes` seems to be about ~32x faster than `Array#indexOf` in Node, and `Array#includes` seems to be about ~7.5x faster than Array#indexOf in Deno. Interestingly, `Array#indexOf` seems to be about ~24x faster than `Array#includes` in Bun, the opposite of the other two.
+`Array#includes` seems to be about ~1.8x faster than `Array#indexOf` in Node, and `Array#includes` seems to be about ~7.5x faster than Array#indexOf in Deno. Interestingly, `Array#indexOf` seems to be about ~3 faster than `Array#includes` in Bun, the opposite of the other two.
 
 ### Deno
 
@@ -36,21 +36,25 @@ Array#indexOf       33.73 ns/iter  29,645,352.5    (32.94 ns … 43.8 ns)  34.16
 
 ### Node.js
 
-_Version: Node.js v20.5.1_
+_Version: Node.js v20.10.0_
 
-| Name           | Iterations/s |
-| -------------- | ------------ |
-| Array#includes | 991,714,178  |
-| Array#indexOf  | 30,946,903   |
+| Name           | Ops/s      |
+| -------------- | ---------- |
+| Array#includes | 25,072,406 |
+| Array#indexOf  | 13,924,296 |
 
 <details>
     <summary>Full results</summary>
 
 ```
-$ node src/node.js
-Array#includes x 991,714,178 ops/sec ±1.50% (96 runs sampled)
-Array#indexOf x 30,946,903 ops/sec ±1.59% (97 runs sampled)
-Fastest is Array#includes.
+$ node src/quickbench.js
+┌─────────┬──────────────────┬──────────────┬────────────────────┬──────────┬──────────┐
+│ (index) │    Task Name     │   ops/sec    │ Average Time (ns)  │  Margin  │ Samples  │
+├─────────┼──────────────────┼──────────────┼────────────────────┼──────────┼──────────┤
+│    0    │ 'Array#includes' │ '25,072,406' │ 39.884483571410634 │ '±1.69%' │ 12536204 │
+│    1    │ 'Array#indexOf'  │ '13,924,296' │ 71.81691304477177  │ '±0.27%' │ 6962149  │
+└─────────┴──────────────────┴──────────────┴────────────────────┴──────────┴──────────┘
+Fastest function for resource 'default' was 'Array#includes'.
 ```
 
 </details>
@@ -61,17 +65,21 @@ _Version: Bun 1.0.18_
 
 | Name           | Iterations/s |
 | -------------- | ------------ |
-| Array#includes | 15,047,321   |
-| Array#indexOf  | 363,218,829  |
+| Array#includes | 10,975,517   |
+| Array#indexOf  | 32,947,337   |
 
 <details>
     <summary>Full results</summary>
 
 ```
-> bun src/node.js
-Array#includes x 15,047,321 ops/sec ±2.72% (87 runs sampled)
-Array#indexOf x 363,218,829 ops/sec ±57.23% (25 runs sampled)
-Fastest is Array#indexOf.
+> bun src/quickbench.js
+┌─────────┬──────────────────┬──────────────┬────────────────────┬──────────┬──────────┐
+│ (index) │    Task Name     │   ops/sec    │ Average Time (ns)  │  Margin  │ Samples  │
+├─────────┼──────────────────┼──────────────┼────────────────────┼──────────┼──────────┤
+│    0    │ 'Array#includes' │ '10,975,517' │ 91.11187827486278  │ '±0.05%' │ 5487759  │
+│    1    │ 'Array#indexOf'  │ '32,947,337' │ 30.35146618811912  │ '±0.09%' │ 16473670 │
+└─────────┴──────────────────┴──────────────┴────────────────────┴──────────┴──────────┘
+Fastest function for resource 'default' was 'Array#indexOf'.
 ```
 
 </details>
