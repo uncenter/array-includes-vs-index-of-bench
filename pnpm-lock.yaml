@@ -5,11 +5,20 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@uncenter/quickbench':
+    specifier: ^0.1.0
+    version: 0.1.0
   benchmark:
     specifier: ^2.1.4
     version: 2.1.4
 
 packages:
+
+  /@uncenter/quickbench@0.1.0:
+    resolution: {integrity: sha512-DI7mE8kowKEvZ2A0NrLBdPshm8g+1CfRSsbILersXfVxZynOYIyjMvDL7Vd4E+yLKuZHaXUjbaZXXT0vbMRqdg==}
+    dependencies:
+      tinybench: 2.5.1
+    dev: false
 
   /benchmark@2.1.4:
     resolution: {integrity: sha512-l9MlfN4M1K/H2fbhfMy3B7vJd6AGKJVQn2h6Sg/Yx+KckoUA7ewS5Vv6TjSq18ooE1kS9hhAlQRH3AkXIh/aOQ==}
@@ -24,4 +33,8 @@ packages:
 
   /platform@1.3.6:
     resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
+    dev: false
+
+  /tinybench@2.5.1:
+    resolution: {integrity: sha512-65NKvSuAVDP/n4CqH+a9w2kTlLReS9vhsAP06MWx+/89nMinJyB2icyl58RIcqCmIggpojIGeuJGhjU1aGMBSg==}
     dev: false
