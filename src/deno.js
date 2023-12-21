@@ -1,4 +1,4 @@
-import { ITEMS, SEARCH_ITEM } from "../resources/constants.mjs";
+import { ITEMS, SEARCH_ITEM } from "../resources/constants.js";
 
 Deno.bench({
 	name: "Array#includes",
